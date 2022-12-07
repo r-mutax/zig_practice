@@ -27,3 +27,7 @@ test "errdefer" {
     try expect(data == 1);
     try expect(errptn == 0);
 }
+
+const FileError = error { NotFound, WriteError };
+const MemoryError = error { AccessDenied, CannotAllocate };
+const AllError = FileError || MemoryError;
